@@ -1,3 +1,16 @@
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  // block
+      inlineMath: [['\\(', '\\)']]                  // inline
+    },
+    loader:{
+      load: ['ui/safe']
+    },
+  };
+</script>
+
 {{ if and .IsPage (eq (.Param "mathjax") true) }}
 <script src="{{ .Param "mathjaxPath" | default "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" }}{{ with .Param "mathjaxConfig" | default "TeX-AMS-MML_HTMLorMML" }}?config={{ . }}{{ end }}" async></script>
 {{ end }}
